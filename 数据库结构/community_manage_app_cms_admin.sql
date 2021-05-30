@@ -1,0 +1,2 @@
+INSERT INTO community_manage.app_cms_admin (id, name, password, create_time) VALUES (1, 'admin', 'admin', '2021-04-20 18:18:10.449755');
+INSERT INTO community_manage.app_cms_admin (id, name, password, create_time) VALUES (4, 'test1', 'test', '2021-04-21 17:28:25.555320');

@@ -1,0 +1,9 @@
+INSERT INTO community_manage.app_cms_checklog (id, name, user_id, user_type, temperature, sign_time, matter, comment) VALUES (1, '小区', 14, '业主', 38.8, '2021-04-25 01:35:05.372632', '探视', '暂无');
+INSERT INTO community_manage.app_cms_checklog (id, name, user_id, user_type, temperature, sign_time, matter, comment) VALUES (2, '小区', 14, '业主', 38.8, '2021-04-25 02:10:03.460478', '探视', '....');
+INSERT INTO community_manage.app_cms_checklog (id, name, user_id, user_type, temperature, sign_time, matter, comment) VALUES (3, '小区', 5, '外来人员', 38.8, '2021-04-25 02:33:57.660516', '探视', '暂无');
+INSERT INTO community_manage.app_cms_checklog (id, name, user_id, user_type, temperature, sign_time, matter, comment) VALUES (4, '小区', 14, '学生', 38.8, '2021-04-26 17:15:23.754509', '探视', '暂无');
+INSERT INTO community_manage.app_cms_checklog (id, name, user_id, user_type, temperature, sign_time, matter, comment) VALUES (5, '张业主', 15, '其他', 38.8, '2021-04-26 18:53:30.679670', '其他', '暂无');
+INSERT INTO community_manage.app_cms_checklog (id, name, user_id, user_type, temperature, sign_time, matter, comment) VALUES (6, '张业主', 15, '公司职员', 38.8, '2021-04-26 18:53:30.679670', '其他', '暂无');
+INSERT INTO community_manage.app_cms_checklog (id, name, user_id, user_type, temperature, sign_time, matter, comment) VALUES (7, 'test', 18, '其他', 38.8, '2021-04-27 12:58:46.139955', '探视', '暂无');
+INSERT INTO community_manage.app_cms_checklog (id, name, user_id, user_type, temperature, sign_time, matter, comment) VALUES (8, '小区', 0, '业主', 3, '2021-04-27 16:48:32.579059', '其他', '暂无');
+INSERT INTO community_manage.app_cms_checklog (id, name, user_id, user_type, temperature, sign_time, matter, comment) VALUES (9, '小区', 0, '学生', 37, '2021-04-27 16:48:32.579059', '探视', '');

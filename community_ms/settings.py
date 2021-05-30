@@ -96,8 +96,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'community_manage',
-        'USER': 'root',
-        'PASSWORD': 'admin12',
+        'USER': '##',
+        'PASSWORD': '##',
         'HOST': 'localhost',
         'PORT': '3306'
     }

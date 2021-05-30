@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据统计</title>
+    <link href="/statics/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/statics/js/jquery.min.js"></script>
+    <script src="/statics/js/plugins/layer/layer.js"></script>
+    <script src="/statics/js/echarts.min.js"></script>
+    <script src="/statics/js/bootstrap-datepicker.min.js"></script>
+    <script src="/statics/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div>
+        <h2 align="center">数据统计分析</h2>
+        <div id="tabMonthDate" style="width: 45%;float: right;">
+            <label>选择年-月份</label>
+            <div class="input-group date" data-date-format="yyyy-mm">
+                <input type="text" readonly name="temperature" class="form-control" placeholder="06.2020">
+                <div class="input-group-addon">
+                    <span class="ti-angle-down"></span>
+                </div>
+            </div>
+            <div id="temperature-pie" style="width: 600px;height: 400px;"></div>
+        </div>
+        <div id="roomMonthDate" style="width: 45%;">
+            <label>选择年-月份</label>
+            <div class="input-group date" data-date-format="yyyy-mm">
+                <input type="text" readonly name="job" class="form-control" placeholder="06.2020">
+                <div class="input-group-addon">
+                    <span class="ti-angle-down"></span>
+                </div>
+            </div>
+            <div id="job-pie" style="width: 600px;height: 400px;"></div>
+        </div>
+        <div id="tabMonthDate" style="width: 45%;">
+            <label>选择年-月份</label>
+            <div class="input-group date" data-date-format="yyyy-mm">
+                <input type="text" readonly name="matter" class="form-control" placeholder="06.2020">
+                <div class="input-group-addon">
+                    <span class="ti-angle-down"></span>
+                </div>
+            </div>
+            <div id="matter-pie" style="width: 600px;height: 400px;"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $.ajaxSetup({
+        data: {csrfmiddlewaretoken: '{{ csrf_token }}'},
+    });
+    $(".input-group").datepicker({
+        ignoreReadonly: true,
+        minViewMode: 'months',
+        autoclose: true,
+        format: 'yyyy-mm'
+    });
+    $(".input-group").datepicker()
+        .on('changeDate', function (e) {
+            var target = e.target.children[0]
+            var data = {};
+            data['type'] = target.name;
+            data['time'] = target.value;
+            $.ajax({
+                url: "/cms_admin/statistic_api",
+                data: data,
+                type: 'post',
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data.data.length)
+                    if (data.data.length === 0){
+                        data.data = [{value: 0, name: '业主'},{value: 0, name: '外来人员'},
+                            {value: 0, name: '其他'}]
+                        layer.msg("本月份没有数据记录!", {icon: 2})
+                    }
+                    showPie(data.type + '-pie', data.message, data.data, "总计:"+data.total+"人次")
+                },
+                error: function (data) {
+                    layer.msg("失败！", {icon: 2});
+                }
+            });
+        });
+
+    function showPie(name, title, data, subtext) {
+        option = {
+            title: {
+                text: '某站点用户访问来源',
+                subtext: subtext,
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+            },
+            series: [
+                {
+                    name: '数据分析',
+                    type: 'pie',
+                    radius: '50%',
+                    data: [],
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        // 基于准备好的dom，初始化echarts实例
+        var Chart = echarts.init(document.getElementById(name));
+        // 使用刚指定的配置项和数据显示图表。
+        option.series[0].data = data;
+        option.title.text = title;
+        Chart.setOption(option);
+    }
+
+    // 指定图表的配置项和数据
+    test_data = [{value: 0, name: '业主'},
+        {value: 0, name: '外来人员'},{value: 0, name: '其他'}]
+
+    showPie('temperature-pie', '小区来访人员体温统计', test_data, '');
+    showPie('matter-pie', '小区来访目的统计', test_data, '');
+    showPie('job-pie', '小区来访人员职业统计', test_data, '');
+    showPie('time-pie', '小区来访时间统计', test_data, '');
+
+</script>
+</body>
+</html>

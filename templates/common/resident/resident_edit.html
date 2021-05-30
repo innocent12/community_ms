@@ -1,0 +1,55 @@
+{% extends "common/_container.html" %}
+{% block content %}
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+
+                    {% with id="id", readonly="True", name="序号", value=item.id, underline="true" %}
+                        {% include "common/tags/input.html" %}
+                    {% endwith %}
+                    {% with id="name", name="姓名", value=item.name, underline="true" %}
+                        {% include "common/tags/input.html" %}
+                    {% endwith %}
+                    {% with id="age", name="年龄", value=item.age, underline="true" %}
+                        {% include "common/tags/input.html" %}
+                    {% endwith %}
+                    {% with id="sex",name="性别",value=item.sex,underline="true" %}
+                        {% include "common/tags/select.html" %}
+                    {% endwith %}
+                </div>
+
+                <div class="col-sm-6">
+                    {% with id="phone", name="电话", value=item.phone, underline="true" %}
+                        {% include "common/tags/input.html" %}
+                    {% endwith %}
+                    {% with id="address", name="地址", value=item.address, underline="true" %}
+                        {% include "common/tags/input.html" %}
+                    {% endwith %}
+                    {% with id="job",name="职位", value=item.job, underline="true" %}
+                        {% include "common/tags/input.html" %}
+                    {% endwith %}
+                    {% with id="bce_user_id", name="机器识别号", value=item.bce_user_id,readonly="readonly", underline="true" %}
+                        {% include "common/tags/input.html" %}
+                    {% endwith %}
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    {% with btnCss="info", name="提交", id="ensure", icon="fa-check", clickFun="CmsResidentInfoDlg.editSubmit()" %}
+                        {% include "common/tags/button.html" %}
+                    {% endwith %}
+                    {% with  btnCss="danger", name="取消", id="cancel", icon="fa-eraser", clickFun="CmsResidentInfoDlg.close()" %}
+                        {% include "common/tags/button.html" %}
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="/statics/js/cms_resident/resident_info.js"></script>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "common/_container.html" %}
+{% block content %}
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+
+                    {% with id="id", readonly="True", name="序号", value=item.id, underline="true" %}
+                        {% include "common/tags/input.html" %}
+                    {% endwith %}
+                    {% with id="name", name="用户名", value=item.name %}
+                        {% include "common/tags/input.html" %}
+                    {% endwith %}
+                </div>
+
+                <div class="col-sm-6">
+                    {% with id="password", name="密码", value=item.password %}
+                        {% include "common/tags/input.html" %}
+                    {% endwith %}
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    {% with btnCss="info", name="提交", id="ensure", icon="fa-check", clickFun="CmsAdminInfoDlg.editSubmit()" %}
+                        {% include "common/tags/button.html" %}
+                    {% endwith %}
+                    {% with  btnCss="danger", name="取消", id="cancel", icon="fa-eraser", clickFun="CmsAdminInfoDlg.close()" %}
+                        {% include "common/tags/button.html" %}
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="/statics/js/cms_admin/admin_info.js"></script>
+{% endblock %}

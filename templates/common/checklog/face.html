@@ -1,0 +1,53 @@
+{% extends "common/_container.html" %}
+{% block content %}
+    <main class="main flex-row-wrap">
+        <section class="main__camera">
+            <h2 class="main__title">从本地摄像头获取</h2>
+            <p class="main__hint">请确保当前设备的摄像头处于可用状态</p>
+
+            <div id="open-power" class="main__camera-power flex-center">
+					<span class="main__camera-power--span">
+						<img src="/statics/images/camera.png" alt="power"/>
+					</span>
+                <p class="main__camera-power--hint">请开启摄像头调用权限</p>
+            </div>
+            <button id="open_media" class="main__camera-confirm flex-center">
+                开启摄像头
+            </button>
+            <button id="main__confirm" class="main__camera-confirm flex-center">
+                <img class="main__camera-confirm--img" src="/statics/images/photo.png" alt="photograph">
+            </button>
+        </section>
+
+        <section class="main__upload">
+            <h2 class="main__title">头像裁剪</h2>
+            <p class="main__hint">将头像调整为你喜欢的样子就可以上传啦</p>
+
+            <div class="flex-row-wrap">
+                <div id="main__photo" class="main__upload-left">
+                    <div class="main__upload-left--thumbBox"></div>
+                    <div class="main__upload-left--spinner">Loading...</div>
+                </div>
+
+                <div class="main__upload-right">
+                </div>
+            </div>
+
+            <div class="main__upload-left--btn flex-row-wrap">
+                <button id="main__lessen" class="main__upload-btn flex-center">
+                    <!-- 缩小 -->
+                    <img class="main__upload-btn--img" src="/statics/images/small.png" alt="small">
+                </button>
+
+                <button id="main__boost" class="main__upload-btn flex-center">
+                    <!-- 放大 -->
+                    <img class="main__upload-btn--img" src="/statics/images/big.png" alt="big">
+                </button>
+
+                <button id="main__rop" class="main__upload-btn main__upload-btn--color flex-center">裁剪</button>
+                <button id="main__submit" class="main__upload-btn main__upload-btn--confirm flex-center">完成上传</button>
+            </div>
+        </section>
+    </main>
+        <script src="/statics/js/cms_check/face.js"></script>
+{% endblock %}

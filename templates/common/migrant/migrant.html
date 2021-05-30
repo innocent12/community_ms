@@ -1,0 +1,33 @@
+{% extends "common/_container.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>{{ header }}</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="hidden-xs" id="CmsMigrantTableToolbar" role="group">
+                            {% with name="添加", icon="fa-plus", clickFun="CmsMigrant.openAddCmsMigrant()" %}
+                                {% include "common/tags/button.html" %}
+                            {% endwith %}
+                            {% with name="修改", icon="fa-edit", clickFun="CmsMigrant.openCmsMigrantDetail()",space="true" %}
+                                {% include "common/tags/button.html" %}
+                            {% endwith %}
+                            {% with name="删除", icon="fa-remove", clickFun="CmsMigrant.delete()",space="true" %}
+                                {% include "common/tags/button.html" %}
+                            {% endwith %}
+                        </div>
+                    {% with id="CmsMigrantTable" %}
+                        {% include "common/tags/table.html"%}
+                    {% endwith %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/statics/js/cms_migrant/migrant.js"></script>
+{% endblock %}

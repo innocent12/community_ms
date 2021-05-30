@@ -1,0 +1,37 @@
+{% extends "common/_container.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>{{ header }}</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="hidden-xs" id="CmsCheckLogTableToolbar" role="group">
+                            {% with name="添加", icon="fa-plus", clickFun="CmsCheckLog.openAddCmsCheckLog()" %}
+                                {% include "common/tags/button.html" %}
+                            {% endwith %}
+                            {% with name="修改", icon="fa-edit", clickFun="CmsCheckLog.openCmsCheckLogDetail()",space="true" %}
+                                {% include "common/tags/button.html" %}
+                            {% endwith %}
+                            {% with name="删除", icon="fa-remove", clickFun="CmsCheckLog.delete()",space="true" %}
+                                {% include "common/tags/button.html" %}
+                            {% endwith %}
+                            &nbsp;
+                            {% with name="开启人脸识别", icon="fa=remove", btnCss="success", clickFun="CmsCheckLog.openCapture()",space="true" %}
+                                {% include "common/tags/button.html" %}
+                            {% endwith %}
+                        </div>
+                    {% with id="CmsCheckLogTable" %}
+                        {% include "common/tags/table.html"%}
+                    {% endwith %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/statics/js/cms_check/check.js"></script>
+{% endblock %}

@@ -1,0 +1,5 @@
+Django==3.2
+baidu_aip==2.2.18.0
+Jinja2==2.11.3
+opencv_python==4.5.1.48
+PyMySQL==1.0.2

@@ -31,60 +31,18 @@
 
 ## 数据表名
 + 管理员表(cms_admin)
-  - auto-generated definition
-    create table app_cms_admin
-    (
-        id          bigint auto_increment
-            primary key,
-        name        varchar(16) not null,
-        password    varchar(16) not null,
-        create_time datetime(6) not null
-    );
+
 
 + 小区住宅用户(cms_residents)
-    - auto-generated definition
-    create table app_cms_checklog
-    (
-        id          bigint auto_increment
-            primary key,
-        name        varchar(32) not null,
-        user_id     int         not null,
-        user_type   varchar(16) not null,
-        temperature double      not null,
-        sign_time   datetime(6) not null,
-        matter      varchar(64) not null,
-        comment     longtext    not null
-    );
+
 
 
 + 小区外来人员(cms_migrants)
-  - auto-generated definition
-    create table app_cms_migrants
-    (
-        id       bigint auto_increment
-            primary key,
-        name     varchar(32) not null,
-        age      int         not null,
-        sex      varchar(8)  not null,
-        phone    varchar(16) not null,
-        log_time datetime(6) not null
-    );
+
 
 
 + 进出记录(cms_check_log)
-  - auto-generated definition
-    create table app_cms_residents
-    (
-        id       bigint auto_increment
-            primary key,
-        name     varchar(32) not null,
-        age      int         not null,
-        sex      varchar(10) not null,
-        phone    varchar(16) not null,
-        address  varchar(64) not null,
-        job      varchar(32) not null,
-        log_time datetime(6) not null
-    );
+
 
 + 数据分析部分(暂定)
 

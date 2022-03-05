@@ -1,4 +1,5 @@
 # Django-小区进出管理系统
+![](https://img.shields.io/badge/Python-3.65-green)
 # 不会调试的或者是需要重新修改代码或者加功能可以哔哩哔哩私信我https://space.bilibili.com/385873520
 # 题目:Django+layer.js基于百度人脸识别的小区进出管理系统
     需求:
